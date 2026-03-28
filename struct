@@ -1,0 +1,21 @@
+#!/bin/bash
+
+cd ~/projects/aoc
+
+for year in {2015..2025}
+do 
+    mkdir -p $year
+    for day in {1..25}
+    do
+        if [ $day -ge 10 ]; then
+            day_dir=day_$day
+        else
+            day_dir=day_0$day
+        fi
+        mkdir -p $year/$day_dir/data
+        touch $year/$day_dir/data/.gitkeep
+        touch $year/$day_dir/data/puzzle
+        touch $year/$day_dir/data/input
+        mkdir -p $year/$day_dir/work
+    done
+done
